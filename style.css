@@ -138,16 +138,15 @@ p {
   color: var(--ink-soft);
 }
 
-.site-nav a:hover,
-.site-nav a.active {
+.site-nav a:hover {
   color: var(--ink);
 }
 
-.nav-cta {
-  background: var(--ink);
-  color: var(--white) !important;
-  padding: 8px 14px;
-  border-radius: 999px;
+.site-nav a.active {
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
 }
 
 .nav-toggle {
