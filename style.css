@@ -576,4 +576,55 @@ textarea {
   .hero-stats {
     grid-template-columns: 1fr;
   }
+  /* ===== Section background images ===== */
+
+#home {
+  position: relative;
+  background-image: url("images/bg-home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#about {
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                     url("images/bg-about.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#services {
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                     url("images/bg-services.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#portfolio {
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                     url("images/bg-portfolio.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#calculator {
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                     url("images/bg-calculator.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#review {
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                     url("images/bg-review.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#contact {
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                     url("images/bg-contact.jpg");
+  background-size: cover;
+  background-position: center;
+}
 }
