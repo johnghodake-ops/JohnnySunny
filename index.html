@@ -10,117 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!--
-    ============================================================================
-    BACKGROUND IMAGES — HOW THIS WORKS
-    ============================================================================
-    Every page/section below (Home, About, Services, Portfolio, Calculator,
-    Review, Contact) has a background image hook already wired up.
-
-    1. Drop your image files into the /images/ folder using the exact file
-       names referenced below (or edit the file names here + in the CSS
-       to match your own files).
-    2. Recommended size: 1920x1080px (or larger), JPG/WEBP, kept under ~400KB
-       each so the page still loads fast.
-    3. A dark gradient overlay is already applied on top of every background
-       image (see ".bg-image::before" below) so white text stays readable.
-       If your photo is already dark, you can lower the overlay opacity.
-
-    File names expected (rename your photos to match, or edit the paths):
-      images/bg-home.jpg        -> Hero / Home section
-      images/bg-about.jpg       -> About Us section
-      images/bg-services.jpg    -> Services section
-      images/bg-portfolio.jpg   -> Portfolio section (behind the project cards)
-      images/bg-calculator.jpg  -> Solar Calculator section
-      images/bg-review.jpg      -> Review section
-      images/bg-contact.jpg     -> Contact Us section
-  -->
-  <style>
-    /* =============================================================
-       SECTION BACKGROUND IMAGE SYSTEM
-       Applies a full-bleed background photo + dark overlay to any
-       element carrying the ".bg-image" class, using the specific
-       modifier class (.bg-home, .bg-about, etc.) to pick the image.
-       This is layered ON TOP of your existing style.css and does not
-       remove any of your current styling/colors.
-       ============================================================= */
-    .bg-image {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      isolation: isolate; /* keeps overlay + content stacking contained to this section */
-    }
-    /* Dark gradient overlay so headings/body text stay legible over any photo */
-    .bg-image::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10, 14, 20, 0.82) 0%, rgba(10, 14, 20, 0.72) 100%);
-      z-index: 0;
-    }
-    /* Every direct child of a bg-image section sits above the overlay */
-    .bg-image > * {
-      position: relative;
-      z-index: 1;
-    }
-    /* Force light text automatically on any section using a background photo */
-    .bg-image, .bg-image h1, .bg-image h2, .bg-image h3, .bg-image p, .bg-image li, .bg-image label {
-      color: #f4f6f8;
-    }
-
-    /* One background image per page — swap the file names for your own photos */
-    .bg-home       { background-image: url('images/bg-home.jpg'); }
-    .bg-about      { background-image: url('images/bg-about.jpg'); }
-    .bg-services   { background-image: url('images/bg-services.jpg'); }
-    .bg-portfolio  { background-image: url('images/bg-portfolio.jpg'); }
-    .bg-calculator { background-image: url('images/bg-calculator.jpg'); }
-    .bg-review     { background-image: url('images/bg-review.jpg'); }
-    .bg-contact    { background-image: url('images/bg-contact.jpg'); }
-
-    /* =============================================================
-       CARDS — shared look for every "card" style block used across
-       Services / Portfolio / Hero snapshot so they read consistently
-       even when placed on top of a photo background.
-       ============================================================= */
-    .card,
-    .project,
-    .hero-card,
-    .about-panel,
-    .result-panel {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-    .bg-image .card,
-    .bg-image .project,
-    .bg-image .hero-card,
-    .bg-image .about-panel {
-      /* Inside a photo section, cards get a solid card body so the
-         text inside them is never read against the raw photo. */
-      color: #111418;
-    }
-    .bg-image .card h3,
-    .bg-image .project h3,
-    .bg-image .hero-card h2,
-    .bg-image .about-panel h3 {
-      color: #111418;
-    }
-
-    /* =============================================================
-       PORTFOLIO PHOTOS — real project photography instead of the
-       old flat color placeholders (.v1 / .v2 / .v3)
-       ============================================================= */
-    .project-visual {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;      /* crops to fill the box without distorting the photo */
-      display: block;
-      border-radius: 14px 14px 0 0;
-      background: #dfe4ea;    /* shows while the image is loading / if a path is wrong */
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#home">Skip to content</a>
@@ -150,17 +39,7 @@
   </header>
 
   <main>
-
-    <!-- ================================================================
-         PAGE 1: HOME (HERO)
-         Purpose: first impression + core pitch + quick stats.
-         Background: images/bg-home.jpg (wide shot of an installed
-         rooftop/plant works best here).
-         Cards in this page: 1 "hero-card" (site snapshot stats card).
-         ================================================================ -->
-    <section class="hero bg-image bg-home" id="home">
-      <!-- Old plain "hero-media" div kept for compatibility with style.css,
-           but the actual photo now comes from the .bg-home class above. -->
+    <section class="hero" id="home">
       <div class="hero-media" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
@@ -186,8 +65,6 @@
             </div>
           </dl>
         </div>
-
-        <!-- CARD: Hero snapshot card — quick numeric proof point -->
         <aside class="hero-card">
           <p class="card-kicker">Site snapshot</p>
           <h2>What a 50 kW commercial roof can do</h2>
@@ -201,8 +78,6 @@
       </div>
     </section>
 
-    <!-- Quick capability strip (kept plain / no background photo, sits
-         right under the hero as a thin divider band). -->
     <section class="strip">
       <div class="wrap strip-grid">
         <p>Grid-tied</p>
@@ -213,16 +88,7 @@
       </div>
     </section>
 
-    <!-- ================================================================
-         PAGE 2: ABOUT US
-         Purpose: credibility — who runs the company and how work is
-         scoped/delivered.
-         Background: images/bg-about.jpg (e.g. team on site, or John G
-         at a survey/inspection).
-         Cards in this page: 1 "about-panel" card (practice principles +
-         owner contact chip).
-         ================================================================ -->
-    <section class="section bg-image bg-about" id="about">
+    <section class="section" id="about">
       <div class="wrap split">
         <div>
           <p class="eyebrow">About US</p>
@@ -230,8 +96,6 @@
           <p>JohnSunny EPC is owned by John G. We run a tight engineering-procurement-construction loop: load study, string design, structure, electrical, permissions, and commissioning. You get a plant that matches the roof, the tariff, and the load — not a generic kit.</p>
           <p>Work is scoped in writing. Generation estimates sit next to assumptions. After handover, monitoring and O&amp;M keep the array honest.</p>
         </div>
-
-        <!-- CARD: About panel — principles list + owner contact chip -->
         <div class="about-panel">
           <h3>Practice principles</h3>
           <ol>
@@ -251,46 +115,33 @@
       </div>
     </section>
 
-    <!-- ================================================================
-         PAGE 3: SERVICES
-         Purpose: break the full EPC scope into buyable line items.
-         Background: images/bg-services.jpg (e.g. close-up of panels/
-         inverter room/electrical work).
-         Cards in this page: 6 service cards in a grid (".card").
-         ================================================================ -->
-    <section class="section section-alt bg-image bg-services" id="services">
+    <section class="section section-alt" id="services">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Services</p>
           <h2>Full-scope solar, split into work you can actually buy.</h2>
         </header>
         <div class="card-grid">
-          <!-- CARD 1: Residential -->
           <article class="card">
             <h3>Residential rooftop</h3>
             <p>3–15 kW grid-tied systems for homes. Load matching, inverter selection, net-metering file support, and a clean rooftop layout.</p>
           </article>
-          <!-- CARD 2: Commercial & Industrial -->
           <article class="card">
             <h3>Commercial &amp; industrial</h3>
             <p>20 kW to multi-MW plants on sheds, RCC roofs, and carports. Structural vetting, LT/HT interfacing, and phased shutdowns.</p>
           </article>
-          <!-- CARD 3: Hybrid & Backup -->
           <article class="card">
             <h3>Hybrid &amp; backup</h3>
             <p>Solar with storage for unstable feeders and critical loads. Battery sizing from actual outage hours, not guesswork.</p>
           </article>
-          <!-- CARD 4: Engineering study -->
           <article class="card">
             <h3>Engineering study</h3>
             <p>Shade analysis, stringing, SLD, cable schedules, and earthing. Issued as a drawing set before procurement.</p>
           </article>
-          <!-- CARD 5: Procurement -->
           <article class="card">
             <h3>Procurement</h3>
             <p>Tier-1 modules, string or central inverters, MMS, BOS. Serial tracking and factory papers stay with the project file.</p>
           </article>
-          <!-- CARD 6: O&M -->
           <article class="card">
             <h3>O&amp;M</h3>
             <p>Cleaning cycles, thermal scans, inverter logs, and annual generation reports against the commissioning baseline.</p>
@@ -299,92 +150,42 @@
       </div>
     </section>
 
-    <!-- ================================================================
-         PAGE 4: PORTFOLIO
-         Purpose: proof via 3 completed projects.
-         Background: images/bg-portfolio.jpg (a wide plant photo works
-         well behind the cards since the cards themselves are solid).
-         Cards in this page: 3 "project" cards — EACH ONE NOW HAS A
-         REAL PHOTO SLOT. Upload your 3 project photos with the exact
-         file names below (or update the src="" paths to match your
-         own file names):
-
-           1) images/portfolio-industrial-shed-420kw.jpg
-              -> Industrial shed · 420 kW
-           2) images/portfolio-campus-180kw.jpg
-              -> Campus · 180 kW
-           3) images/portfolio-residence-8-8kw-hybrid.jpg
-              -> Residence · 8.8 kW hybrid
-
-         Recommended photo size: 1200x800px (3:2), JPG/WEBP, under 300KB.
-         The CSS class ".project-visual" (see <style> above) auto-crops
-         each photo to a consistent height/shape so all 3 cards line up
-         evenly regardless of the original photo's aspect ratio.
-         ================================================================ -->
-    <section class="section bg-image bg-portfolio" id="portfolio">
+    <section class="section" id="portfolio">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Portfolio</p>
           <h2>Recent plants. Output first, finish second.</h2>
         </header>
         <div class="portfolio-grid">
-
-          <!-- CARD 1: Industrial shed · 420 kW
-               UPLOAD PHOTO HERE -> images/portfolio-industrial-shed-420kw.jpg -->
           <article class="project">
-            <img
-              class="project-visual v1"
-              src="images/portfolio-industrial-shed-420kw.jpg"
-              alt="420 kW rooftop solar installation on an industrial shed">
+            <div class="project-visual v1"></div>
             <div class="project-body">
               <p>Industrial shed · 420 kW</p>
               <h3>Process plant rooftop, daytime load cover</h3>
               <p>String inverters, walkways, and a 66 kV plant interface. Year-1 specific yield tracked at 1,410 kWh/kWp.</p>
             </div>
           </article>
-
-          <!-- CARD 2: Campus · 180 kW
-               UPLOAD PHOTO HERE -> images/portfolio-campus-180kw.jpg -->
           <article class="project">
-            <img
-              class="project-visual v2"
-              src="images/portfolio-campus-180kw.jpg"
-              alt="180 kW solar array split across an education campus">
+            <div class="project-visual v2"></div>
             <div class="project-body">
               <p>Campus · 180 kW</p>
               <h3>Education campus, split arrays</h3>
               <p>Three buildings, one monitoring desk. Net metering closed in 28 working days after commissioning.</p>
             </div>
           </article>
-
-          <!-- CARD 3: Residence · 8.8 kW hybrid
-               UPLOAD PHOTO HERE -> images/portfolio-residence-8-8kw-hybrid.jpg -->
           <article class="project">
-            <img
-              class="project-visual v3"
-              src="images/portfolio-residence-8-8kw-hybrid.jpg"
-              alt="8.8 kW hybrid solar and battery storage system at a hill residence">
+            <div class="project-visual v3"></div>
             <div class="project-body">
               <p>Residence · 8.8 kW hybrid</p>
               <h3>Hill bungalow with storage</h3>
               <p>Hybrid inverter and 10 kWh storage sized to 6-hour evening load. Array kept off the ridge for wind.</p>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         PAGE 5: SOLAR CALCULATOR
-         Purpose: interactive lead-generating tool (form + on-page result
-         + optional emailed PDF report).
-         Background: images/bg-calculator.jpg (e.g. a sunny roof / clear
-         sky shot keeps this section feeling light next to a form).
-         Cards in this page: 1 "result-panel" card (appears after the
-         form is submitted) + the calculator form panel itself.
-         ================================================================ -->
-    <section class="section section-alt bg-image bg-calculator" id="calculator">
+    <section class="section section-alt" id="calculator">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Solar Calculator</p>
@@ -393,7 +194,6 @@
         </header>
 
         <div class="calc-layout">
-          <!-- Calculator input form (values are read by script.js) -->
           <form id="calc-form" class="form-panel" novalidate>
             <div class="field">
               <label for="calc-location">Site location</label>
@@ -445,8 +245,6 @@
             </div>
           </form>
 
-          <!-- CARD: Result panel — hidden until script.js calculates and
-               reveals it (removes the "hidden" attribute) -->
           <div class="result-panel" id="calc-results" hidden>
             <p class="card-kicker">On-page result</p>
             <h3>Recommended system</h3>
@@ -461,7 +259,6 @@
               <li><span>CO₂ offset / year</span><strong id="out-co2">—</strong></li>
             </ul>
 
-            <!-- Sub-form: emails the PDF report once results are shown -->
             <form id="pdf-form" class="pdf-box" novalidate>
               <label for="calc-email">Email for PDF report</label>
               <input id="calc-email" name="email" type="email" maxlength="254" placeholder="you@company.com" required>
@@ -474,28 +271,17 @@
       </div>
     </section>
 
-    <!-- ================================================================
-         PAGE 6: REVIEW
-         Purpose: collect + display client trust signals.
-         Background: images/bg-review.jpg (e.g. a happy client site /
-         handover moment).
-         Cards in this page: no boxed "card" class here in the original
-         markup — the quote uses a simple blockquote; the review form
-         acts as the interactive card on this page (".form-panel").
-         ================================================================ -->
-    <section class="section bg-image bg-review" id="review">
+    <section class="section" id="review">
       <div class="wrap split">
         <div>
           <p class="eyebrow">Review</p>
           <h2>Leave a site review after handover — or after a survey.</h2>
           <p>Reviews are stored in D1 and emailed to John G. Use a real contact number so we can verify the plant if needed.</p>
-          <!-- Testimonial quote block -->
           <blockquote class="quote">
             “Commissioning report matched the first 30 days of inverter data. No missing earthing, no leftover packing on the roof.”
             <cite>Plant manager, 180 kW campus</cite>
           </blockquote>
         </div>
-        <!-- CARD: Review submission form -->
         <form id="review-form" class="form-panel" novalidate>
           <div class="field">
             <label for="review-name">Name</label>
@@ -531,15 +317,7 @@
       </div>
     </section>
 
-    <!-- ================================================================
-         PAGE 7: CONTACT US
-         Purpose: final call-to-action / enquiry form.
-         Background: images/bg-contact.jpg (e.g. office/desk or a wide
-         plant shot to close the page on a strong visual).
-         Cards in this page: the enquiry form acts as the card
-         (".form-panel").
-         ================================================================ -->
-    <section class="section section-alt bg-image bg-contact" id="contact">
+    <section class="section section-alt" id="contact">
       <div class="wrap split">
         <div>
           <p class="eyebrow">Contact us</p>
@@ -551,7 +329,6 @@
           </ul>
           <p class="fine">Submit stores the enquiry in D1, then emails John G through the Gmail web app.</p>
         </div>
-        <!-- CARD: Contact enquiry form -->
         <form id="contact-form" class="form-panel" novalidate>
           <div class="field">
             <label for="contact-name">Name</label>
@@ -583,9 +360,7 @@
     </div>
   </footer>
 
-  <!-- config.js: environment/API config used by script.js (D1 endpoint, PDF email endpoint, etc.) -->
   <script src="config.js"></script>
-  <!-- script.js: calculator math, form submit handlers, PDF/email + review/contact form POSTs -->
   <script src="script.js"></script>
 </body>
 </html>
