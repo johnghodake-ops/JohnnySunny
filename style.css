@@ -450,6 +450,9 @@ p {
 
 .portfolio-grid {
   grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .project {
